@@ -603,9 +603,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 5f759a60-d037-408b-89fd-8093215dbcd4
+  cloudProjectId: d598a37f-964a-40f5-bf57-8abac6da52c6
   projectName: FinalProject
-  organizationId: oraclian
+  organizationId: yoonsungjun
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
