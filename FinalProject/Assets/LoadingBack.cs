@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MoveMain : MonoBehaviour {
+public class LoadingBack : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +15,8 @@ public class MoveMain : MonoBehaviour {
 		
 	}
 
-	public void ChangeScene(){
-		SceneManager.LoadScene ("Main");
-	}
+    public void ChangeMain()
+    {
+        SceneManager.LoadScene("LoadingScene");
+    }
 }
