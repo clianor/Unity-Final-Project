@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\ChangeScene.cs" />
+     <Compile Include="Assets\ExitButton.cs" />
      <Compile Include="Assets\InfoButton.cs" />
      <Compile Include="Assets\LoadingBack.cs" />
      <Compile Include="Assets\MenuBar.cs" />
