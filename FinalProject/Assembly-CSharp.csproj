@@ -56,7 +56,10 @@
      <Compile Include="Assets\InfoButton.cs" />
      <Compile Include="Assets\LoadingBack.cs" />
      <Compile Include="Assets\MenuBar.cs" />
+     <Compile Include="Assets\MenuDisable.cs" />
      <Compile Include="Assets\SoundManager.cs" />
+     <Compile Include="Assets\VolumeButton.cs" />
+     <Compile Include="Assets\VolumeControl.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -1,17 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
-public class SoundManager : MonoBehaviour {
+public class SoundManager : MonoBehaviour
+{
     public AudioSource musicSource;
     public static SoundManager instance = null;
 
-	void Awake()
+    void Awake()
     {
         if (instance == null)
-            instance = null;
+            instance = this;
         else if (instance != this)
             Destroy(gameObject);
+
         DontDestroyOnLoad(gameObject);
     }
 }
