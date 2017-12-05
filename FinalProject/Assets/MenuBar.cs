@@ -12,6 +12,6 @@ public class MenuBar : MonoBehaviour {
 
     public void onClick()
     {
-        GameObject.Find("Canvas").transform.FindChild("MenuBar").gameObject.SetActive(true);
+        GameObject.Find("Canvas").transform.Find("MenuBar").gameObject.SetActive(true);
     }
 }
