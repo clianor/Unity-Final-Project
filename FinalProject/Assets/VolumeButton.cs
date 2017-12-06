@@ -9,7 +9,7 @@ public class VolumeButton : MonoBehaviour {
 	
 	public void onClick()
     {
-        GameObject.Find("Canvas").transform.FindChild("VolumeImage").gameObject.SetActive(true);
+        GameObject.Find("Canvas").transform.Find("VolumeImage").gameObject.SetActive(true);
         GameObject.Find("MenuBar").SetActive(false);
     }
 }

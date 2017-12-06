@@ -16,6 +16,6 @@ public class ChangeScene : MonoBehaviour {
 	}
 
 	public void ChangeScenes(){
-		SceneManager.LoadScene ("Main");
+		SceneManager.LoadScene ("LoginScene");
 	}
 }
