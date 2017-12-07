@@ -11,14 +11,42 @@ public class GameManager : MonoBehaviour {
 
 	public InputField IDInputField;
 	public InputField PWInputField;
-
 	public InputField NewIDInputField;
 	public InputField NewPWInputField;
-
 	public GameObject CreateAccountPanel;
 
-	//코루틴
-	public void LoginBtn(){
+    public static GameManager instance = null;
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+        else if (Input.GetKeyDown(KeyCode.PageDown))
+        {
+            float volume = SoundManager.instance.musicSource.volume;
+            SoundManager.instance.musicSource.volume = (float)System.Math.Round((volume - 0.1f), 1);
+        }
+        else if (Input.GetKeyUp(KeyCode.PageUp))
+        {
+            float volume = SoundManager.instance.musicSource.volume;
+            SoundManager.instance.musicSource.volume = (float)System.Math.Round((volume + 0.1f), 1);
+        }
+    }
+
+    //코루틴
+    public void LoginBtn(){
 		StartCoroutine (LoginCo ());
 	}
 
