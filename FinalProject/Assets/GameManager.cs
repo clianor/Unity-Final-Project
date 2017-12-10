@@ -45,12 +45,26 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    //코루틴
-    public void LoginBtn(){
-		StartCoroutine (LoginCo ());
-	}
+	void Start(){
+		string conn = "URI=file:" + Application.dataPath + "/Login.db";
+		IDbConnection dbconn;
+		dbconn = (IDbConnection) new SqliteConnection (conn);
+		dbconn.Open ();
 
-	IEnumerator LoginCo(){
+		IDbCommand dbcmd = dbconn.CreateCommand ();
+		string sqlQuery;
+		sqlQuery = "CREATE TABLE IF NOT EXISTS 'Login'('Number' INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,'ID' TEXT UNIQUE,'Password' TEXT);";
+
+		dbcmd.CommandText = sqlQuery;
+		dbcmd.ExecuteNonQuery ();
+
+		dbcmd.Dispose ();
+		dbcmd = null;
+		dbconn.Close ();
+		dbconn = null;
+	}
+		
+    public void LoginBtn(){
 		string conn = "URI=file:" + Application.dataPath + "/Login.db";
 		IDbConnection dbconn;
 		dbconn = (IDbConnection) new SqliteConnection (conn);
@@ -67,7 +81,9 @@ public class GameManager : MonoBehaviour {
 			string ID = reader.GetString (1);
 			string Password = reader.GetString (2);
 
-			if (IDInputField.text == reader.GetString (1)	){
+			if (IDInputField.text == "")
+				OpenCreateAccountBtn();
+			else if (IDInputField.text == reader.GetString (1)){
 				if(PWInputField.text == reader.GetString(2)) {
 					SceneManager.LoadScene ("Main");
 				}
@@ -79,8 +95,6 @@ public class GameManager : MonoBehaviour {
 		dbcmd = null;
 		dbconn.Close ();
 		dbconn = null;
-
-		yield return null;
 	}
 
 	public void CreateAccountBtn(){	
@@ -92,21 +106,27 @@ public class GameManager : MonoBehaviour {
 		IDbCommand dbcmd = dbconn.CreateCommand ();
 		string ID = NewIDInputField.text;
 		string PASSWORD = NewPWInputField.text;
-		string sqlQuery = String.Format("INSERT INTO Login (ID,Password) VALUES('{0}','{1}');",ID,PASSWORD);
-		dbcmd.CommandText = sqlQuery;
-		dbcmd.ExecuteNonQuery ();
 
+		if (ID != "" || PASSWORD != "") {
+			string sqlQuery = String.Format("INSERT INTO Login (ID,Password) VALUES('{0}','{1}');",ID,PASSWORD);
+			dbcmd.CommandText = sqlQuery;
+			dbcmd.ExecuteNonQuery ();
 
-		dbcmd.Dispose ();
-		dbcmd = null;
-		dbconn.Close ();
-		dbconn = null;
+			dbcmd.Dispose ();
+			dbcmd = null;
+			dbconn.Close ();
+			dbconn = null;
+		}
 
 		if (dbcmd == null && dbconn == null)
-			SceneManager.LoadScene ("LoginScene");
+			SceneManager.LoadScene ("Main");
 	}
 
 	public void OpenCreateAccountBtn(){
 		CreateAccountPanel.SetActive (true);
+	}
+
+	public void BackBtn(){
+		CreateAccountPanel.SetActive (false);
 	}
 }
