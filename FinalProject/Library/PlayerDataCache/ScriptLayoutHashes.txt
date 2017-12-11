@@ -144,3 +144,4 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 a8d0966758ffe18280b64502a1f2eb0d Assembly-CSharp.dll:.SoundManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.OpenUrl
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ExitButton
+ca163e542e5d3681859330ed71872383 Assembly-CSharp.dll:.FlashingText

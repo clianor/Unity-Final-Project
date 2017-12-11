@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\ChangeScene.cs" />
      <Compile Include="Assets\ExitButton.cs" />
+     <Compile Include="Assets\FlashingText.cs" />
      <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\InfoButton.cs" />
      <Compile Include="Assets\LoadingBack.cs" />
